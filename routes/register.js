@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.render('index.ejs', { name: 'Leander' });
+  res.render('register.ejs');
 });
 
 module.exports = router;
