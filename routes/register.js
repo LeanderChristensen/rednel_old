@@ -1,7 +1,14 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res, next) {
+function checkNotAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) {
+    return res.redirect('/');
+  }
+  next();
+}
+
+router.get('/', checkNotAuthenticated, function(req, res, next) {
   res.render('register.ejs');
 });
 
