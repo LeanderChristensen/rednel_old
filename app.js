@@ -60,9 +60,7 @@ app.post('/register', checkNotAuthenticated, async (req, res) => {
       email: req.body.email,
       password: hashedPassword
     });
-    req.login();
-    passport.authenticate();
-    res.redirect('/');
+    res.redirect('/login');
   } catch {
     res.redirect('/register')
   }
